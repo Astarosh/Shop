@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<shop>
+    <sportsInventory id="1001">
+        <category>Велотовары</category>
+        <title>Детский велосипед</title>
+        <price>5</price>
+        <available>2</available>
+    </sportsInventory>
+    <sportsInventory id="1002">
+        <category>Велотовары</category>
+        <title>Взрослый велосипед</title>
+        <price>7</price>
+        <available>3</available>
+    </sportsInventory>
+    <sportsInventory id="1003">
+        <category>Спортивное оборудование</category>
+        <title>Футбольные мячи</title>
+        <price>1</price>
+        <available>8</available>
+    </sportsInventory>
+    <sportsInventory id="1004">
+        <category>Спортивное оборудование</category>
+        <title>Баскетбольные мячи</title>
+        <price>1</price>
+        <available>9</available>
+    </sportsInventory>
+    <sportsInventory id="1005">
+        <category>Спортивное оборудование</category>
+        <title>Воллейбольные мячи</title>
+        <price>1</price>
+        <available>6</available>
+    </sportsInventory>
+    <sportsInventory id="1006">
+        <category>Спортивное оборудование</category>
+        <title>Лыжи</title>
+        <price>2</price>
+        <available>6</available>
+    </sportsInventory>
+    <sportsInventory id="1007">
+        <category>Спортивное оборудование</category>
+        <title>Санки</title>
+        <price>2</price>
+        <available>8</available>
+    </sportsInventory>
+    <sportsInventory id="1008">
+        <category>Спортивное оборудование</category>
+        <title>Ласты</title>
+        <price>1</price>
+        <available>10</available>
+    </sportsInventory>
+    <sportsInventory id="1009">
+        <category>Спортивное оборудование</category>
+        <title>Скакалки</title>
+        <price>1</price>
+        <available>10</available>
+    </sportsInventory>
+    <sportsInventory id="1010">
+        <category>Спортивное оборудование</category>
+        <title>Гантели</title>
+        <price>1</price>
+        <available>12</available>
+    </sportsInventory>
+    <sportsInventory id="1011">
+        <category>Спортивное оборудование</category>
+        <title>Самокаты</title>
+        <price>2</price>
+        <available>3</available>
+    </sportsInventory>
+</shop>
