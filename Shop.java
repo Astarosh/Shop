@@ -8,8 +8,8 @@ public class Shop{
 	//Вводим название магазина
 	private static String name = "Магазин проката спортивных товаров";
 	//Устанавливаем пути к файлам
-    private static final String FILENAME1 = "\\SportEquipment.xml";
-    private static final String FILENAME2 = "\\RentEquipment.xml";
+    private static final String FILENAME1 = "\\Shop-master\\SportEquipment.xml";
+    private static final String FILENAME2 = "\\Shop-master\\RentEquipment.xml";
     public static void main(String[] args) throws IOException{
     	//Загружаем данные из XML файлов
     	//Загружаем данные о текущих товарах
