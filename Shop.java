@@ -3,32 +3,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-//Г‘Г®Г§Г¤Г ГҐГ¬ Г®Г±Г­Г®ГўГ­Г®Г© ГЄГ«Г Г±Г± Shop
+//Создаем основной класс Shop
 public class Shop{
-	//Г‚ГўГ®Г¤ГЁГ¬ Г­Г Г§ГўГ Г­ГЁГҐ Г¬Г ГЈГ Г§ГЁГ­Г 
-	private static String name = "ГЊГ ГЈГ Г§ГЁГ­ ГЇГ°Г®ГЄГ ГІГ  Г±ГЇГ®Г°ГІГЁГўГ­Г»Гµ ГІГ®ГўГ Г°Г®Гў";
-	//Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЇГіГІГЁ ГЄ ГґГ Г©Г«Г Г¬
-    private static final String FILENAME1 = "\\SportEquipment.xml";
-    private static final String FILENAME2 = "\\RentEquipment.xml";
+	//Вводим название магазина
+	private static String name = "Магазин проката спортивных товаров";
+	//Устанавливаем пути к файлам
+    private static final String FILENAME1 = "\\src\\SportEquipment.xml";
+    private static final String FILENAME2 = "\\src\\RentEquipment.xml";
     public static void main(String[] args) throws IOException{
-    	//Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЁГ§ XML ГґГ Г©Г«Г®Гў
-    	//Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г® ГІГҐГЄГіГ№ГЁГµ ГІГ®ГўГ Г°Г Гµ
+    	//Загружаем данные из XML файлов
+    	//Загружаем данные о текущих товарах
     	SportEquipment readAvailableInventory = new SportEquipment();
     	readAvailableInventory.readAvailable(Shop.FILENAME1);
-    	//Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г® ГўГ§ГїГІГ»Гµ Г­Г  ГЇГ°Г®ГЄГ ГІ ГІГ®ГўГ Г°Г Гµ
+    	//Загружаем данные о взятых на прокат товарах
     	RentUnit readRentInventory = new RentUnit();
     	readRentInventory.readRented(Shop.FILENAME2);
-    	//ГЌГ Г·ГЁГ­Г ГҐГ¬ Г°Г Г§ГЈГ®ГўГ®Г° Г± ГЄГ«ГЁГҐГ­ГІГ®Г¬
+    	//Начинаем разговор с клиентом
     	BufferedReader a = new BufferedReader(new InputStreamReader(System.in));
     	Out:
     	while(true){
-        	System.out.println("Г‚Г Г± ГЇГ°ГЁГўГҐГІГ±ГІГўГіГҐГІ " + name + "!");
-        	System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГўГ§ГїГІГј Г·ГІГ®-Г­ГЁГЎГіГ¤Гј Г­Г ГЇГ°Г®ГЄГ ГІ? ГЌГ ГЇГЁГёГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ");
+        	System.out.println("Вас приветствует " + name + "!");
+        	System.out.println("Желаете взять что-нибудь напрокат? Напишите да или нет");
     		String b = a.readLine();
-    	    if(b.equals("Г¤Г ")){
+    	    if(b.equals("да")){
         	    while(true){
-        	        System.out.println("ГЌГ ГЇГЁГёГЁГІГҐ Г·ГІГ® Г¦ГҐГ«Г ГҐГІГҐ ГўГ§ГїГІГј.");
-        		    System.out.print("Г„Г®Г±ГІГіГЇГ­Г»Г© ГЁГ­ГўГҐГ­ГІГ Г°Гј: ");
+        	        System.out.println("Напишите что желаете взять.");
+        		    System.out.print("Доступный инвентарь: ");
         		    for(Object key : readAvailableInventory.availableNames){
         		        System.out.print(" ");
         		        System.out.print(key);
@@ -40,28 +40,28 @@ public class Shop{
         		            int f = Arrays.asList(readAvailableInventory.availableNames).indexOf(c);
         		            if(f != -1){
             		            int g = Integer.parseInt(readAvailableInventory.getGoods(c));
-                    	        System.out.print("Г„Г®Г±ГІГіГЇГ­Г®ГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®: ");
+                    	        System.out.print("Доступное количество: ");
                     	        System.out.println(g);
-                    	        System.out.print("Г–ГҐГ­Г  Г§Г  1 Г¤ГҐГ­Гј: ");
+                    	        System.out.print("Цена за 1 день: ");
                     	        System.out.println(readAvailableInventory.prices[f] + "$");
                     	    } else{
-                    		    System.out.println("Г‚Г» Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ Г­Г Г§ГўГ Г­ГЁГҐ!");
+                    		    System.out.println("Вы неправильно ввели название!");
                     		    continue;
                     	    }
                 	    } catch(Exception e){
-                		    System.out.println("Г‚Г» Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ Г­Г Г§ГўГ Г­ГЁГҐ!");
+                		    System.out.println("Вы неправильно ввели название!");
                 		    continue;
                 	    }
         		    } else{
         		        continue;
         		    }
-        		    System.out.println("Г‘ГЄГ®Г«ГјГЄГ® Г¦ГҐГ«Г ГҐГІГҐ ГўГ§ГїГІГј(Г¬Г ГЄГ±. 3 ГҐГ¤ ГІГ®ГўГ Г°Г  Г­Г  1 Г·ГҐГ«Г®ГўГҐГЄГ )?");
+        		    System.out.println("Сколько желаете взять(макс. 3 ед товара на 1 человека)?");
         		    while(true){
         		    	int g = Integer.parseInt(readAvailableInventory.getGoods(c));
         		        try{
         		            int d = Integer.parseInt(a.readLine());
         		            if(d < 4 && d > 0 && d <= g){
-        		                System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГўГ ГёГі ГґГ Г¬ГЁГ«ГЁГѕ");
+        		                System.out.println("Введите вашу фамилию");
         		                String h = a.readLine();
         		                if(!h.equals("") || !h.equals(" ") || h.length() > 2){
         		    	            int rentedQ = 0;
@@ -71,86 +71,86 @@ public class Shop{
         	    		                }
         	    		            }
         	    		            if(rentedQ != 3 && d + rentedQ < 4){
-        	    		                System.out.println("Г‚Г Гё Г§Г ГЄГ Г§ ГЇГ°ГЁГ­ГїГІ");
-        	    		                System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј?");
+        	    		                System.out.println("Ваш заказ принят");
+        	    		                System.out.println("Желаете продолжить?");
         	    		                String rt = a.readLine();
-            	    		            if(rt.equals("Г¤Г ")){
+            	    		            if(rt.equals("да")){
             	    		            	break;
-            	    		            } else if(rt.equals("Г­ГҐГІ")){
-            	    		            	System.out.println("Г‚Г±ГҐГЈГ® Г­Г ГЁГ«ГіГ·ГёГҐГЈГ®! Г‚Г®Г§ГўГ°Г Г№Г Г©ГІГҐГ±Гј!");
+            	    		            } else if(rt.equals("нет")){
+            	    		            	System.out.println("Всего наилучшего! Возвращайтесь!");
             	    			            break Out;
             	    		            } else{
-            	    		            	System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ");
+            	    		            	System.out.println("Введите да или нет");
             	    		            	continue;
             	    		            }
         	    		            } else{
-        	    		            	System.out.println("Г‚Г» ГіГ¦ГҐ ГўГ§ГїГ«ГЁ " + rentedQ + " ГІГ®ГўГ Г°Г (Г¤Г®Г±ГІГіГЇГ­Г® ГўГ§ГїГІГј 3).");
+        	    		            	System.out.println("Вы уже взяли " + rentedQ + " товара(доступно взять 3).");
         	    		            	break Out;
         	    		            }
         	    	            }
         		                } else{
         		                	if(g > 3){
-        		                		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г®ГІ 1 Г¤Г® 3");
+        		                		System.out.println("Введите количество от 1 до 3");
         		                	} else{
-        		                		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г®ГІ 1 Г¤Г® " + g);
+        		                		System.out.println("Введите количество от 1 до " + g);
         		                	}
         		    	            continue;
         		                }
         	            } catch(Exception e){
-        		            System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г®ГІ 1 Г¤Г® 3");
+        		            System.out.println("Введите количество от 1 до 3");
         		            continue;
         	            }
         		    }
         		}
-        	} else if(b.equals("Г­ГҐГІ")){
-        		System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г®Г±ГІГ ГІГЄГЁ ГЇГ® ГІГ®ГўГ Г°Г Г¬?");
+        	} else if(b.equals("нет")){
+        		System.out.println("Желаете посмотреть остатки по товарам?");
         		while(true){
         		    String io = a.readLine();
-        		    if(io.equals("Г¤Г ")){
-        			    System.out.print("Г„Г®Г±ГІГіГЇГ­Г»Г© ГЁГ­ГўГҐГ­ГІГ Г°Гј: ");
+        		    if(io.equals("да")){
+        			    System.out.print("Доступный инвентарь: ");
             		    for(Object key : readAvailableInventory.availableNames){
             		        System.out.print(" ");
             		        System.out.print(key);
             		    }
             		    System.out.println();
-            		    System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј?");
+            		    System.out.println("Желаете продолжить?");
             		    String uy = a.readLine();
-            		    if(uy.equals("Г¤Г ")){
+            		    if(uy.equals("да")){
             		    	break;
-            		    } else if(uy.equals("Г­ГҐГІ")){
-            		    	System.out.println("Г‚Г±ГҐГЈГ® Г­Г ГЁГ«ГіГ·ГёГҐГЈГ®!");
+            		    } else if(uy.equals("нет")){
+            		    	System.out.println("Всего наилучшего!");
             		    	break Out;
             		    } else{
-            		    	System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ");
+            		    	System.out.println("Введите да или нет");
 					    	continue;
             		    }
-        		    } else if(io.equals("Г­ГҐГІ")){
-        			    System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г­Г  ГЁГ­ГўГҐГ­ГІГ Г°Гј Гў ГЇГ°Г®ГЄГ ГІГҐ?");
+        		    } else if(io.equals("нет")){
+        			    System.out.println("Желаете посмотреть на инвентарь в прокате?");
         			    String ui = a.readLine();
-        			    if(ui.equals("Г¤Г ")){
+        			    if(ui.equals("да")){
         				    for(int i = 0; i < readRentInventory.getUnits().length; i++){
         					    System.out.println(readRentInventory.getUnits()[i] + " " + readRentInventory.rentedQuantity[i]);
         				    }
-    					    System.out.println("Г†ГҐГ«Г ГҐГІГҐ ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј?");
+    					    System.out.println("Желаете продолжить?");
     					    String er = a.readLine();
-    					    if (er.equals("Г¤Г ")){
+    					    if (er.equals("да")){
     					    	break;
-    					    } else if(er.equals("Г­ГҐГІ")){
+    					    } else if(er.equals("нет")){
     					    	break Out;
     					    } else {
-    					    	System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ");
+    					    	System.out.println("Введите да или нет");
     					    	continue;
     					    }
         			    } else {
         				    break Out;
         			    }
         		    } else{
-        			    System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ");
+        			    System.out.println("Введите да или нет");
         			    continue;
         		    }
         	    }
         	} else{
-        		System.out.println("ГЌГ ГЇГЁГёГЁГІГҐ Г¤Г  ГЁГ«ГЁ Г­ГҐГІ.");
+        		System.out.println("Напишите да или нет.");
         		continue;
         	}
     	}
