@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<shop>
+    <sportsInventory id="2001">
+        <category>Велотовары</category>
+        <title>Детский велосипед</title>
+        <rentedQuantity>2</rentedQuantity>
+        <name>Karshake</name>
+        <name>Karshakev</name>
+    </sportsInventory>
+    <sportsInventory id="2002">
+        <category>Велотовары</category>
+        <title>Взрослый велосипед</title>
+        <rentedQuantity>4</rentedQuantity>
+        <name>Karshake</name>
+        <name>Krau</name>
+        <name>Knau</name>
+        <name>Lis</name> 
+    </sportsInventory>
+    <sportsInventory id="2003">
+        <category>Велотовары</category>
+        <title>Санки</title>
+        <rentedQuantity>4</rentedQuantity>
+        <name>Lodr</name>
+        <name>Etug</name>
+        <name>Kirk</name>
+        <name>Koschei</name> 
+    </sportsInventory>
+    <sportsInventory id="2004">
+        <category>Велотовары</category>
+        <title>Футбольные мячи</title>
+        <rentedQuantity>2</rentedQuantity>
+        <name>Lokust</name>
+        <name>Krokodil</name>
+    </sportsInventory>
+    <sportsInventory id="2005">
+        <category>Велотовары</category>
+        <title>Лыжи</title>
+        <rentedQuantity>1</rentedQuantity>
+        <name>Shket</name>
+    </sportsInventory>
+</shop>
